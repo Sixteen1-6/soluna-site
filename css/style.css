@@ -485,3 +485,23 @@ html[data-theme="luna"] img.logo { filter: brightness(0) invert(.92); }
 .card .soon { font-size: 12px; letter-spacing: .02em; color: var(--muted); }
 .card .notify { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--line); padding: 4px 11px; color: var(--ink); transition: border-color .2s, color .2s; }
 .card:hover .notify { border-color: var(--accent); color: var(--accent); }
+
+/* ---- theme contrast fix: dark feature bands stay dark in BOTH Sol and Luna ---- */
+/* These bands were inverting in Luna (cream bg) while their text stayed cream, going
+   invisible. Scoping the color vars here pins them to a fixed dark palette either way. */
+.announce, .hero, .page-hero, .editorial, .drop-strip, footer.site, .how {
+  --ink: #1B2942;
+  --ink-2: #16223A;
+  --ink-3: #2A3A57;
+  --paper: #F1EAD9;
+  --paper-2: #1B2942;
+  --muted: rgba(241, 234, 217, .64);
+  --muted-inv: rgba(241, 234, 217, .64);
+  --line: rgba(241, 234, 217, .16);
+  --line-inv: rgba(241, 234, 217, .16);
+  --hair: rgba(241, 234, 217, .16);
+  --accent: #9DB6D2;
+  --accent-ink: #16223A;
+}
+/* footer logos must read on the always-dark footer, in both modes */
+.foot-brand img.logo, .foot-mark img.logo { filter: brightness(0) invert(.92); }
