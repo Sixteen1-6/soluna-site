@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sol">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soluna · Made for Sunny Days</title>
+<meta name="description" content="Premium pickleball, made for sunny days. Considered cases and apparel for players who play for the love of it. Lexington, KY.">
+<meta property="og:title" content="Soluna · Made for Sunny Days">
+<meta property="og:description" content="Premium pickleball. The case your paddle deserves. First drop coming soon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://solunapkl.com">
+<meta property="og:image" content="https://solunapkl.com/assets/logo.png">
+<meta name="theme-color" content="#1F2E48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F2E48'/%3E%3Ctext x='16' y='23' font-family='Bodoni MT,Didot,Georgia,serif' font-size='20' fill='%23F3ECDD' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F3ECDD; --bg-2:#EAE1CD; --ink:#1F2E48; --ink-2:#5C6679; --line:#D8CDB6;
+    --accent:#5E7B9E; --navy:#1F2E48; --cream:#F3ECDD;
+    --serif:"Bodoni Moda",Didot,"Times New Roman",serif; --sans:"Jost",system-ui,sans-serif;
+  }
+  html[data-theme="luna"]{
+    --bg:#101A2B; --bg-2:#16223A; --ink:#EDE6D6; --ink-2:#9AA6BC; --line:#27344E;
+    --accent:#9DB6D2; --navy:#0B1322; --cream:#EDE6D6;
+  }
+  html[data-theme="luna"] .logo,html[data-theme="luna"] .foot-logo{filter:brightness(0) invert(.92)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .5s,color .5s}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:.005em}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,72px)}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2);font-weight:400}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;height:66px;max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,72px)}
+  .logo{height:19px;width:auto}
+  .nav-links{display:flex;gap:30px;margin-left:auto}
+  .nav-links a{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);transition:.2s}
+  .nav-links a:hover{color:var(--ink)}
+  .toggle{margin-left:30px;cursor:pointer;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);user-select:none;border-left:1px solid var(--line);padding-left:18px;transition:.2s}
+  .toggle:hover{color:var(--ink)} .toggle b{color:var(--ink);font-weight:500}
+
+  /* hero */
+  header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .court{position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:118%;opacity:.06;pointer-events:none}
+  .hero-in{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,5vw,72px);
+    align-items:center;min-height:min(88vh,840px);padding:64px 0}
+  header.hero h1{font-size:clamp(44px,7vw,92px);margin:26px 0 0;max-width:11ch;font-weight:400}
+  header.hero h1 i{color:var(--accent)}
+  .tagline{margin-top:26px;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink)}
+  .hero p.lede{font-size:16.5px;color:var(--ink-2);max-width:42ch;margin-top:24px}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .btn{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;padding:15px 30px;
+    transition:.2s;cursor:pointer;border:1px solid var(--ink);display:inline-block}
+  .btn-primary{background:var(--ink);color:var(--cream)}
+  .btn-primary:hover{background:transparent;color:var(--ink)}
+  .btn-ghost{color:var(--ink)} .btn-ghost:hover{background:var(--ink);color:var(--cream)}
+
+  /* image plate */
+  .plate{position:relative;background:var(--bg-2);border:1px solid var(--line);aspect-ratio:4/5;
+    display:grid;place-items:center;overflow:hidden}
+  .plate .cap{position:absolute;left:16px;bottom:14px;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-2)}
+  .plate .tag{position:absolute;right:14px;top:14px;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);border:1px solid var(--line);padding:4px 9px}
+  .plate svg.case{width:58%;filter:drop-shadow(0 26px 30px rgba(31,46,72,.16))}
+
+  /* marquee */
+  .marquee{background:var(--navy);color:var(--cream);overflow:hidden}
+  .marquee .track{display:flex;white-space:nowrap;animation:slide 34s linear infinite;padding:13px 0;will-change:transform}
+  .marquee span{font-size:11px;letter-spacing:.32em;text-transform:uppercase;padding:0 24px;opacity:.86}
+  .marquee b{color:var(--accent);opacity:1}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  section{padding:clamp(70px,10vw,128px) 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(32px,4.6vw,58px);font-weight:400}
+  .sec-head .sub{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+
+  /* cases — lookbook */
+  .cases{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+  .case .frame{position:relative;background:var(--bg-2);border:1px solid var(--line);aspect-ratio:4/5;
+    display:grid;place-items:center;overflow:hidden;transition:border-color .3s}
+  .case:hover .frame{border-color:var(--accent)}
+  .case .frame svg{width:54%;transition:transform .55s ease;filter:drop-shadow(0 24px 30px rgba(31,46,72,.15))}
+  .case:hover .frame svg{transform:translateY(-6px)}
+  .case .num{position:absolute;left:16px;top:14px;font-family:var(--serif);font-size:15px;color:var(--ink-2);font-style:italic}
+  .case .meta{display:flex;align-items:baseline;justify-content:space-between;margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+  .case h3{font-size:24px;font-weight:400}
+  .case .cw{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+  .case-note{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:34px;text-align:center}
+
+  /* editorial dark statement */
+  .ed{background:var(--navy);color:var(--cream);border:none}
+  html[data-theme="luna"] .ed{background:var(--bg-2)}
+  .ed-in{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,6vw,80px);align-items:center}
+  .ed .eyebrow{color:color-mix(in srgb,var(--cream) 64%,transparent)}
+  .ed h2{font-size:clamp(30px,4.6vw,58px);font-style:italic;font-weight:400;margin-top:16px;line-height:1.1}
+  .ed p{color:color-mix(in srgb,var(--cream) 70%,transparent);margin-top:24px;max-width:40ch;font-size:16px}
+  .ed .plate{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14)}
+  .ed .plate .cap,.ed .plate .tag{color:color-mix(in srgb,var(--cream) 60%,transparent);border-color:rgba(255,255,255,.16)}
+
+  /* drop / signup */
+  .drop{text-align:center}
+  .drop h2{font-size:clamp(34px,5vw,64px);font-weight:400;max-width:16ch;margin:14px auto 0}
+  .drop p.sub{color:var(--ink-2);font-size:16.5px;margin:20px auto 0;max-width:42ch}
+  form{display:flex;gap:0;max-width:460px;margin:40px auto 0;border:1px solid var(--ink)}
+  form input{flex:1;min-width:0;font:inherit;font-size:14px;padding:16px 20px;border:0;background:transparent;color:var(--ink)}
+  form input:focus{outline:none}
+  form button{border:0;border-left:1px solid var(--ink);background:var(--ink);color:var(--cream);
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:0 26px;cursor:pointer}
+  .ok{display:none;margin-top:24px;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--accent)}
+  .ok.show{display:block}
+  .drop .fine{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:20px}
+
+  /* footer */
+  footer{padding:clamp(54px,7vw,80px) 0 0}
+  .foot-top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .foot-top .social{display:flex;gap:26px}
+  .foot-top a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);transition:.2s}
+  .foot-top a:hover{color:var(--ink)}
+  .foot-center{text-align:center;padding:clamp(40px,6vw,70px) 0 24px}
+  .foot-logo{height:clamp(34px,7vw,78px);width:auto;margin:0 auto;opacity:.92}
+  .foot-center .tag{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2);margin-top:22px}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;padding:18px 0;
+    border-top:1px solid var(--line);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+
+  @media(max-width:840px){
+    .hero-in,.cases,.ed-in{grid-template-columns:1fr}
+    .hero-art,.ed .plate{display:none}
+    .nav-links{display:none}
+    .court{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="#top" aria-label="Soluna home"><img class="logo" src="assets/logo.png" alt="Soluna"></a>
+    <div class="nav-links">
+      <a href="#cases">The Case</a>
+      <a href="#drop">The Drop</a>
+      <a href="https://instagram.com/solunapkl" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="toggle" id="toggle" role="button" tabindex="0" aria-label="Toggle Sol / Luna">
+      <b id="tg-label">Sol</b> / Luna
+    </div>
+  </div>
+</nav>
+
+<a id="top"></a>
+<header class="hero">
+  <svg class="court" viewBox="0 0 300 600" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="20" y="20" width="260" height="560"/>
+    <line x1="20" y1="220" x2="280" y2="220"/><line x1="20" y1="380" x2="280" y2="380"/>
+    <line x1="150" y1="20" x2="150" y2="220"/><line x1="150" y1="380" x2="150" y2="580"/>
+    <line x1="20" y1="300" x2="280" y2="300" stroke-dasharray="3 7"/>
+  </svg>
+  <div class="wrap hero-in">
+    <div class="reveal">
+      <div class="eyebrow">Premium pickleball · Lexington, Kentucky</div>
+      <h1>The case your paddle <i>deserves.</i></h1>
+      <div class="tagline">Made for sunny days</div>
+      <p class="lede">For the players who play for the love of it. Gear you're proud to carry onto
+        the court, and proud to set down on the bench.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#drop">Notify me</a>
+        <a class="btn btn-ghost" href="#cases">See the cases</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="plate">
+        <span class="tag">First look</span>
+        <svg class="case" viewBox="0 0 220 300" aria-label="Soluna case">
+          <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9DBCD8"/><stop offset="1" stop-color="#6E97BE"/></linearGradient></defs>
+          <path d="M110 12 C172 12 194 54 194 120 C194 180 168 204 132 211 L132 252 Q132 270 114 270 L106 270 Q88 270 88 252 L88 211 C52 204 26 180 26 120 C26 54 48 12 110 12 Z" fill="url(#hg)"/>
+          <path d="M48 66 C78 38 142 38 172 66" fill="none" stroke="#F3ECDD" stroke-width="2" stroke-dasharray="2 6" opacity=".85"/>
+          <text x="168" y="190" font-family="Bodoni Moda,Didot,serif" font-size="22" fill="#2f4f6f" opacity=".6">S</text>
+        </svg>
+        <span class="cap">The Soluna Case · Marina</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span><b>Made for sunny days</b></span><span>·</span><span>Premium pickleball</span><span>·</span>
+    <span>Lexington, KY</span><span>·</span><span><b>@SolunaPKL</b></span><span>·</span><span>First drop coming soon</span><span>·</span>
+    <span><b>Made for sunny days</b></span><span>·</span><span>Premium pickleball</span><span>·</span>
+    <span>Lexington, KY</span><span>·</span><span><b>@SolunaPKL</b></span><span>·</span><span>First drop coming soon</span><span>·</span>
+  </div>
+</div>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>The first cases.</h2>
+      <span class="sub">Two colorways · Coming soon</span>
+    </div>
+    <div class="cases">
+      <div class="case reveal">
+        <div class="frame">
+          <span class="num">01</span>
+          <svg viewBox="0 0 220 300" aria-label="Soluna case, Blush">
+            <path d="M110 12 C172 12 194 54 194 120 C194 180 168 204 132 211 L132 252 Q132 270 114 270 L106 270 Q88 270 88 252 L88 211 C52 204 26 180 26 120 C26 54 48 12 110 12 Z" fill="#E7A6AE"/>
+            <path d="M48 66 C78 38 142 38 172 66" fill="none" stroke="#F3ECDD" stroke-width="2" stroke-dasharray="2 6" opacity=".85"/>
+            <text x="168" y="190" font-family="Bodoni Moda,Didot,serif" font-size="22" fill="#8a3f4c" opacity=".6">S</text>
+          </svg>
+        </div>
+        <div class="meta"><h3>Blush</h3><span class="cw">Pink</span></div>
+      </div>
+      <div class="case reveal">
+        <div class="frame">
+          <span class="num">02</span>
+          <svg viewBox="0 0 220 300" aria-label="Soluna case, Marina">
+            <path d="M110 12 C172 12 194 54 194 120 C194 180 168 204 132 211 L132 252 Q132 270 114 270 L106 270 Q88 270 88 252 L88 211 C52 204 26 180 26 120 C26 54 48 12 110 12 Z" fill="#9DBCD8"/>
+            <path d="M48 66 C78 38 142 38 172 66" fill="none" stroke="#F3ECDD" stroke-width="2" stroke-dasharray="2 6" opacity=".85"/>
+            <text x="168" y="190" font-family="Bodoni Moda,Didot,serif" font-size="22" fill="#2f4f6f" opacity=".6">S</text>
+          </svg>
+        </div>
+        <div class="meta"><h3>Marina</h3><span class="cw">Blue</span></div>
+      </div>
+    </div>
+    <p class="case-note reveal">Photography from the first shoot, coming soon</p>
+  </div>
+</section>
+
+<section class="ed">
+  <div class="wrap ed-in">
+    <div class="reveal">
+      <div class="eyebrow">Who it's for</div>
+      <h2>You don't have to be the best to take it seriously.</h2>
+      <p>Soluna is for the player who plays for love, not ranking. Premium, considered, and made
+        for people, not pros.</p>
+    </div>
+    <div class="plate reveal">
+      <span class="tag">Lexington</span>
+      <span class="cap">Photography coming soon</span>
+    </div>
+  </div>
+</section>
+
+<section id="drop" class="drop">
+  <div class="wrap reveal">
+    <div class="eyebrow">The drop</div>
+    <h2>Be first onto the court.</h2>
+    <p class="sub">The first drop, cases and apparel, is coming soon. Leave your email and we'll tell
+      you the moment it's live.</p>
+    <form id="notify" novalidate>
+      <input type="email" required placeholder="Email address" aria-label="Email address">
+      <button type="submit">Notify me</button>
+    </form>
+    <div class="ok" id="ok">You're on the list. See you in the sun.</div>
+    <div class="fine">@SolunaPKL on Instagram &amp; TikTok</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)">Lexington, Kentucky</span>
+      <div class="social">
+        <a href="https://instagram.com/solunapkl" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@solunapkl" target="_blank" rel="noopener">TikTok</a>
+        <a href="mailto:hello@solunapkl.com">Email</a>
+      </div>
+    </div>
+    <div class="foot-center">
+      <img class="foot-logo" src="assets/logo.png" alt="Soluna">
+      <div class="tag">Made for sunny days</div>
+    </div>
+    <div class="foot-legal"><span>© 2026 Soluna</span><span>solunapkl.com</span></div>
+  </div>
+</footer>
+
+<script>
+  var root=document.documentElement, tg=document.getElementById('toggle'), label=document.getElementById('tg-label');
+  function setTheme(t){
+    root.setAttribute('data-theme',t);
+    label.textContent=t==='luna'?'Luna':'Sol';
+    document.querySelector('meta[name=theme-color]').setAttribute('content',t==='luna'?'#101A2B':'#1F2E48');
+    try{localStorage.setItem('soluna-theme',t)}catch(e){}
+  }
+  try{var s=localStorage.getItem('soluna-theme'); if(s)setTheme(s);}catch(e){}
+  function flip(){setTheme(root.getAttribute('data-theme')==='luna'?'sol':'luna')}
+  tg.addEventListener('click',flip);
+  tg.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // email capture: client-side acknowledgement. To collect emails, point the form at a free
+  // Formspree endpoint: <form action="https://formspree.io/f/YOUR_ID" method="POST"> and drop preventDefault.
+  document.getElementById('notify').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=this.querySelector('input').value.trim();
+    if(!v||v.indexOf('@')<1){this.querySelector('input').focus();return;}
+    this.style.display='none'; document.getElementById('ok').classList.add('show');
+  });
+</script>
+</body>
+</html>
