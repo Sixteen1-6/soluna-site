@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Case, Soluna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='25' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='26' fill='%231F2E48'%3ES%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <section class="section wrap">
+    <div class="pdp" id="pdp"></div>
+  </section>
+
+  <section class="section wrap" id="related-wrap">
+    <div class="section-head">
+      <div>
+        <h2 class="display">In the same light</h2>
+        <div class="sub serif-it">The rest of the first drop.</div>
+      </div>
+      <a class="view-all" href="shop.html">View all</a>
+    </div>
+    <div class="grid-products" id="related-grid"></div>
+  </section>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    function pageInit() {
+      const id = new URLSearchParams(location.search).get("id") || PRODUCTS[0].id;
+      const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
+      document.title = `${p.name}, ${BRAND.name}`;
+
+      document.getElementById("pdp").innerHTML = `
+        <div class="pdp-art">${productArt(p, { tilt: -6 })}</div>
+        <div class="pdp-info">
+          <div class="cat">${p.category} &middot; ${BRAND.name}</div>
+          <h1 class="display">${p.name}</h1>
+          <div class="price">Coming soon</div>
+          <div class="blurb">${p.blurb}</div>
+          <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
+          <div class="pdp-actions">
+            <form data-signup="pdp-${p.id}">
+              <div class="signup form" style="display:flex;gap:10px">
+                <input type="email" name="email" placeholder="Your email" aria-label="Email" required>
+                <button class="btn btn-accent" type="submit">Notify me</button>
+              </div>
+            </form>
+            <div class="ok">You are on the list. We will write the moment the first drop opens.</div>
+            <a class="btn btn-outline-dark btn-block" href="shop.html">Keep looking</a>
+          </div>
+          <div class="pdp-note">A small first batch out of Lexington, Kentucky. No charge today, we will only reach out when it is ready.</div>
+        </div>`;
+
+      const related = PRODUCTS.filter(x => x.id !== p.id).slice(0, 4);
+      document.getElementById("related-grid").innerHTML = related.map(productCard).join("");
+    }
+  </script>
+</body>
+</html>
