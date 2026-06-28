@@ -294,6 +294,12 @@ function setProductSEO(p) {
     "category": p.category,
     "image": `${SITE_ORIGIN}/assets/og-image.png`,
     "url": url,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder",
+      "priceCurrency": "USD",
+      "url": url,
+    },
   };
   let s = document.getElementById("product-jsonld");
   if (!s) {
