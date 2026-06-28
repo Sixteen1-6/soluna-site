@@ -245,6 +245,66 @@ function wireReveals() {
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 }
 
+/* ------------------------- per-product SEO (product.html) ------------------ */
+/* product.html selects a product from ?id=, so its title/description/canonical
+   and Product structured data must be set at render time. Googlebot renders JS,
+   so this makes each product URL unique; the static tags in product.html's <head>
+   are the no-JS fallback. */
+
+const SITE_ORIGIN = "https://solunapkl.com";
+
+function _meta(key, val) {
+  let el = document.head.querySelector(`meta[${key}]`);
+  if (!el) {
+    el = document.createElement("meta");
+    const [attr, raw] = key.split("=");
+    el.setAttribute(attr, raw.replace(/"/g, ""));
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", val);
+}
+
+function setProductSEO(p) {
+  const url = `${SITE_ORIGIN}/product.html?id=${p.id}`;
+  const titled = `${p.name}, ${BRAND.name}`;
+  const desc = p.blurb.length > 155 ? p.blurb.slice(0, 152).trimEnd() + "..." : p.blurb;
+
+  document.title = titled;
+  _meta('name="description"', desc);
+  _meta('property="og:title"', titled);
+  _meta('property="og:description"', desc);
+  _meta('property="og:url"', url);
+  _meta('name="twitter:title"', titled);
+  _meta('name="twitter:description"', desc);
+
+  let canon = document.head.querySelector('link[rel="canonical"]');
+  if (!canon) {
+    canon = document.createElement("link");
+    canon.setAttribute("rel", "canonical");
+    document.head.appendChild(canon);
+  }
+  canon.setAttribute("href", url);
+
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": p.name,
+    "description": p.blurb,
+    "brand": { "@type": "Brand", "name": BRAND.name },
+    "category": p.category,
+    "image": `${SITE_ORIGIN}/assets/og-image.png`,
+    "url": url,
+  };
+  let s = document.getElementById("product-jsonld");
+  if (!s) {
+    s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.id = "product-jsonld";
+    document.head.appendChild(s);
+  }
+  s.textContent = JSON.stringify(ld);
+}
+
 /* ---------------------------------- boot ----------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {

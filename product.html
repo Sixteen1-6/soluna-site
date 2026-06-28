@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Case, Soluna</title>
+  <meta name="description" content="A structured premium pickleball paddle case, designed in Lexington, Kentucky. The Case in Blush and Marina, plus apparel. First drop coming soon.">
+  <link rel="canonical" href="https://solunapkl.com/product.html?id=case-blush">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Soluna">
+  <meta property="og:title" content="The Case, Soluna">
+  <meta property="og:description" content="A structured premium pickleball paddle case, designed in Lexington, Kentucky.">
+  <meta property="og:url" content="https://solunapkl.com/product.html?id=case-blush">
+  <meta property="og:image" content="https://solunapkl.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Case, Soluna">
+  <meta name="twitter:description" content="A structured premium pickleball paddle case, designed in Lexington, Kentucky.">
+  <meta name="twitter:image" content="https://solunapkl.com/assets/og-image.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Soluna","url":"https://solunapkl.com/","logo":"https://solunapkl.com/assets/logo.png","image":"https://solunapkl.com/assets/og-image.png","description":"Premium pickleball, made for sunny days. Structured paddle cases and apparel, designed in Lexington, Kentucky.","email":"hello@solunapkl.com","address":{"@type":"PostalAddress","addressLocality":"Lexington","addressRegion":"KY","addressCountry":"US"},"sameAs":["https://instagram.com/solunapkl","https://tiktok.com/@solunapkl"]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -33,7 +48,7 @@
     function pageInit() {
       const id = new URLSearchParams(location.search).get("id") || PRODUCTS[0].id;
       const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
-      document.title = `${p.name}, ${BRAND.name}`;
+      setProductSEO(p);
 
       document.getElementById("pdp").innerHTML = `
         <div class="pdp-art">${productArt(p, { tilt: -6 })}</div>
