@@ -68,9 +68,8 @@ function injectChrome(active) {
     : `MADE FOR SUNNY DAYS &nbsp;&middot;&nbsp; <b>THE FIRST DROP IS COMING SOON</b>`;
 
   const links = [
-    ["shop.html", "The Cases"],
-    ["shop.html", "Apparel"],
     ["index.html#drop", "The Drop"],
+    ["shop.html", "Starting Lineup"],
     ["about.html", "Story"],
   ];
 
@@ -110,9 +109,8 @@ function injectChrome(active) {
           </div>
           <div class="foot-col">
             <h4>Shop</h4>
-            <a href="shop.html">The Cases</a>
-            <a href="shop.html">Apparel</a>
             <a href="index.html#drop">The Drop</a>
+            <a href="shop.html">Starting Lineup</a>
           </div>
           <div class="foot-col">
             <h4>Soluna</h4>

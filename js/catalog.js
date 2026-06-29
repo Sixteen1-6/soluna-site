@@ -45,7 +45,7 @@ const PRODUCTS = [
     badge: null,
     colorway: { face: "#9DBCD8", accent: "#1F2E48", edge: "#86A8C8", grip: "#1F2E48" },
     swatches: ["#9DBCD8", "#E7A6AE", "#1F2E48"],
-    blurb: "The same structured shape in a calm coastal blue. Quiet, confident, made to be carried for years.",
+    blurb: "The same structured shape in a calm coastal blue. Confident, made to be carried for years.",
     buyUrl: "",
   },
   {
@@ -68,6 +68,17 @@ const PRODUCTS = [
     colorway: { face: "#1F2E48", accent: "#F3ECDD", edge: "#16223A", grip: "#1F2E48" },
     swatches: ["#1F2E48", "#9DBCD8", "#F3ECDD"],
     blurb: "An unstructured navy cap with a low embroidered S. Pulled-down brim, easy summer shade.",
+    buyUrl: "",
+  },
+  {
+    id: "court-ball",
+    name: "The Court Ball",
+    category: "Balls",
+    price: null,
+    badge: null,
+    colorway: { face: "#F3ECDD", accent: "#1F2E48", edge: "#D8CDB6", grip: "#1F2E48" },
+    swatches: ["#F3ECDD", "#1F2E48", "#9DBCD8"],
+    blurb: "A designed pickleball in the Soluna palette. Tournament weight, true bounce, made to be seen on a bright court.",
     buyUrl: "",
   },
 ];
@@ -160,9 +171,40 @@ function teeSVG(c) {
   </svg>`;
 }
 
+/* Designed pickleball: a holed ball in the Soluna palette (placeholder until photos). */
+function ballSVG(c) {
+  const uid = "b" + (++_svgUid);
+  const ink = c.accent;
+  const cx = 160, cy = 250, R = 122;
+  let holes = "";
+  for (let row = -3; row <= 3; row++) {
+    for (let col = -3; col <= 3; col++) {
+      const hx = cx + col * 36 + (row % 2 ? 18 : 0);
+      const hy = cy + row * 36;
+      const dx = hx - cx, dy = hy - cy;
+      if (dx * dx + dy * dy < (R - 24) * (R - 24)) {
+        holes += `<circle cx="${hx.toFixed(0)}" cy="${hy.toFixed(0)}" r="9" fill="${ink}" opacity=".85"/>`;
+      }
+    }
+  }
+  return `
+  <svg viewBox="0 0 320 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soluna pickleball">
+    <defs>
+      <radialGradient id="${uid}-f" cx=".38" cy=".34" r=".75">
+        <stop offset="0" stop-color="${c.face}"/>
+        <stop offset="1" stop-color="${c.edge}"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="160" cy="392" rx="104" ry="13" fill="rgba(31,46,72,.12)"/>
+    <circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#${uid}-f)" stroke="${c.edge}" stroke-width="2"/>
+    ${holes}
+  </svg>`;
+}
+
 function productArt(p, opts = {}) {
   if (p.image) return `<img src="${p.image}" alt="${p.name}" loading="lazy">`;
   if (p.category === "Apparel") return teeSVG(p.colorway);
+  if (p.category === "Balls") return ballSVG(p.colorway);
   if (p.category === "Case") return caseSVG(p.colorway, opts);
   return caseSVG(p.colorway, opts);
 }
