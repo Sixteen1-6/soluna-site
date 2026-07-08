@@ -70,6 +70,9 @@ function injectChrome(active) {
   const links = [
     ["index.html#drop", "The Drop"],
     ["shop.html", "Starting Lineup"],
+    ["cases.html", "Cases"],
+    ["balls.html", "Balls"],
+    ["apparel.html", "Apparel"],
     ["about.html", "Story"],
   ];
 
@@ -109,8 +112,10 @@ function injectChrome(active) {
           </div>
           <div class="foot-col">
             <h4>Shop</h4>
-            <a href="index.html#drop">The Drop</a>
             <a href="shop.html">Starting Lineup</a>
+            <a href="cases.html">Cases</a>
+            <a href="balls.html">Balls</a>
+            <a href="apparel.html">Apparel</a>
           </div>
           <div class="foot-col">
             <h4>Soluna</h4>
@@ -189,7 +194,7 @@ function productCard(p) {
   return `
   <a class="card reveal" href="product.html?id=${p.id}">
     ${badge}
-    <div class="frame">${productArt(p)}</div>
+    <div class="frame${p.image ? " photo" : ""}">${productArt(p)}</div>
     <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
     <h3>${p.name}</h3>
     <div class="cat">${p.category}</div>
@@ -290,7 +295,7 @@ function setProductSEO(p) {
     "description": p.blurb,
     "brand": { "@type": "Brand", "name": BRAND.name },
     "category": p.category,
-    "image": `${SITE_ORIGIN}/assets/og-image.png`,
+    "image": p.image ? `${SITE_ORIGIN}/${p.image}` : `${SITE_ORIGIN}/assets/og-image.png`,
     "url": url,
     "offers": {
       "@type": "Offer",

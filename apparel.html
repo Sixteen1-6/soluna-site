@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Apparel, Soluna</title>
+  <meta name="description" content="Performance tees and caps made for sunny days. Breathable knits with the Soluna wordmark, designed in Lexington, Kentucky. First drop coming soon.">
+  <link rel="canonical" href="https://solunapkl.com/apparel.html">
+  <meta name="theme-color" content="#1F2E48">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Soluna">
+  <meta property="og:title" content="The Apparel, Soluna">
+  <meta property="og:description" content="Performance tees and caps made for sunny days. First drop coming soon.">
+  <meta property="og:url" content="https://solunapkl.com/apparel.html">
+  <meta property="og:image" content="https://solunapkl.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Soluna, premium pickleball. Made for sunny days.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Apparel, Soluna">
+  <meta name="twitter:description" content="Performance tees and caps made for sunny days.">
+  <meta name="twitter:image" content="https://solunapkl.com/assets/og-image.png">
+  <meta name="twitter:image:alt" content="Soluna, premium pickleball. Made for sunny days.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Soluna","url":"https://solunapkl.com/","logo":"https://solunapkl.com/assets/logo.png","image":"https://solunapkl.com/assets/og-image.png","description":"Premium pickleball, made for sunny days. Structured paddle cases and apparel, designed in Lexington, Kentucky.","email":"hello@solunapkl.com","address":{"@type":"PostalAddress","addressLocality":"Lexington","addressRegion":"KY","addressCountry":"US"},"sameAs":["https://instagram.com/solunapkl","https://tiktok.com/@solunapkl"]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://solunapkl.com/"},{"@type":"ListItem","position":2,"name":"The Apparel","item":"https://solunapkl.com/apparel.html"}]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F3ECDD'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='24' fill='%231F2E48'%3ES%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ============================== PAGE HERO ============================== -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--accent); margin-bottom:14px;">The first drop &middot; coming soon</div>
+      <h1 class="display">The <span class="outline">Apparel</span></h1>
+      <div class="serif-it">The kind of plain you reach for on the bright days.</div>
+    </div>
+  </section>
+
+  <!-- ============================== THE GRID =============================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">The Apparel</h2>
+        <div class="sub">Performance tees and caps for the long afternoons.</div>
+      </div>
+      <div id="product-grid" class="grid-products"></div>
+      <div class="reveal" style="margin-top:28px; padding-top:18px; border-top:1px solid var(--hair); font-size:13px; letter-spacing:.04em; color:var(--muted);">
+        Nothing is for sale just yet. The first drop opens soon, in limited numbers. Leave your email below and you will be the first through the door.
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== NOTIFY ================================ -->
+  <section class="signup section" id="notify">
+    <div class="wrap signup-inner">
+      <h2 class="display">First drop coming soon</h2>
+      <div class="serif-line">The list hears first, always.</div>
+      <p class="small">One note when the doors open. Nothing else.</p>
+      <form data-signup="apparel">
+        <input type="email" required placeholder="Email address" aria-label="Email address">
+        <button class="btn btn-dark" type="submit">Notify me</button>
+      </form>
+      <div class="ok">You are on the list. We will be in touch when the first drop opens.</div>
+    </div>
+  </section>
+
+  <script src="js/catalog.js?v=4"></script>
+  <script src="js/site.js?v=4"></script>
+  <script>
+    function pageInit() {
+      renderProductGrid("#product-grid", PRODUCTS.filter(p => p.category === "Apparel"));
+      document.querySelectorAll('#product-grid .notify').forEach(el => {
+        el.addEventListener("click", e => {
+          e.preventDefault();
+          document.querySelector("#notify").scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => document.querySelector("#notify input")?.focus(), 600);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

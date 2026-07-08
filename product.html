@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='25' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='26' fill='%231F2E48'%3ES%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -47,16 +47,23 @@
     <div class="grid-products" id="related-grid"></div>
   </section>
 
-  <script src="js/catalog.js?v=3"></script>
-  <script src="js/site.js?v=3"></script>
+  <script src="js/catalog.js?v=4"></script>
+  <script src="js/site.js?v=4"></script>
   <script>
     function pageInit() {
       const id = new URLSearchParams(location.search).get("id") || PRODUCTS[0].id;
       const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
       setProductSEO(p);
 
+      const photos = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
       document.getElementById("pdp").innerHTML = `
-        <div class="pdp-art">${productArt(p, { tilt: -6 })}</div>
+        <div class="pdp-left">
+          <div class="pdp-art${photos.length ? " photo" : ""}">${photos.length
+            ? `<img id="pdp-main" src="${photos[0]}" alt="${p.name}">`
+            : productArt(p, { tilt: -6 })}</div>
+          ${photos.length > 1 ? `<div class="pdp-thumbs">${photos.map((s, i) =>
+            `<button type="button" class="${i === 0 ? "active" : ""}" data-src="${s}" aria-label="View photo ${i + 1}"><img src="${s}" alt=""></button>`).join("")}</div>` : ""}
+        </div>
         <div class="pdp-info">
           <div class="cat">${p.category} &middot; ${BRAND.name}</div>
           <h1 class="display">${p.name}</h1>
@@ -75,6 +82,11 @@
           </div>
           <div class="pdp-note">A small first batch out of Lexington, Kentucky. No charge today, we will only reach out when it is ready.</div>
         </div>`;
+
+      document.querySelectorAll(".pdp-thumbs button").forEach(b => b.addEventListener("click", () => {
+        document.getElementById("pdp-main").src = b.dataset.src;
+        document.querySelectorAll(".pdp-thumbs button").forEach(x => x.classList.toggle("active", x === b));
+      }));
 
       const related = PRODUCTS.filter(x => x.id !== p.id).slice(0, 4);
       document.getElementById("related-grid").innerHTML = related.map(productCard).join("");
