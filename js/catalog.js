@@ -87,8 +87,8 @@ const PRODUCTS = [
     colorway: { face: "#F3ECDD", accent: "#D97B2F", edge: "#D8CDB6", grip: "#1F2E48" },
     swatches: ["#F3ECDD", "#E8A33D", "#9DBCD8"],
     blurb: "A designed ball in a retro wave print, cream with citrus and sky. Made to be seen on a bright court.",
-    image: "assets/ball-retro-1.jpg",
-    images: ["assets/ball-retro-1.jpg", "assets/ball-retro-2.jpg", "assets/ball-retro-3.jpg"],
+    image: "assets/ball-retro-3.jpg",
+    images: ["assets/ball-retro-3.jpg", "assets/ball-retro-1.jpg", "assets/ball-retro-2.jpg"],
     buyUrl: "",
   },
   {
@@ -100,8 +100,8 @@ const PRODUCTS = [
     colorway: { face: "#F2A9C4", accent: "#D8698E", edge: "#E7A6AE", grip: "#1F2E48" },
     swatches: ["#F2A9C4", "#E7A6AE", "#F3ECDD"],
     blurb: "A designed ball in soft pink with fine pinstripes. Easy to spot on any court.",
-    image: "assets/ball-pinstripe-1.jpg",
-    images: ["assets/ball-pinstripe-1.jpg", "assets/ball-pinstripe-2.jpg", "assets/ball-pinstripe-3.jpg"],
+    image: "assets/ball-pinstripe-3.jpg",
+    images: ["assets/ball-pinstripe-3.jpg", "assets/ball-pinstripe-1.jpg", "assets/ball-pinstripe-2.jpg"],
     buyUrl: "",
   },
   {

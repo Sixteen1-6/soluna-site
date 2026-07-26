@@ -531,3 +531,4 @@ html[data-theme="luna"] img.logo { filter: brightness(0) invert(.92); }
   .pdp-left { position: static; }
 }
 .pdp-actions .ok { display: none; color: var(--accent-ink); background: var(--accent); padding: 14px; border-radius: 2px; font-weight: 400; letter-spacing: .04em; margin-top: 10px; }
+.pdp-art.photo.landscape { aspect-ratio: 3 / 2; }
