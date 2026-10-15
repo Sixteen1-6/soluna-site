@@ -70,7 +70,6 @@ function injectChrome(active) {
   const links = [
     ["index.html#drop", "The Drop"],
     ["shop.html", "Starting Lineup"],
-    ["cases.html", "Cases"],
     ["balls.html", "Balls"],
     ["apparel.html", "Apparel"],
     ["about.html", "Story"],
@@ -113,7 +112,6 @@ function injectChrome(active) {
           <div class="foot-col">
             <h4>Shop</h4>
             <a href="shop.html">Starting Lineup</a>
-            <a href="cases.html">Cases</a>
             <a href="balls.html">Balls</a>
             <a href="apparel.html">Apparel</a>
           </div>
