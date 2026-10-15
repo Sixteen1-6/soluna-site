@@ -27,32 +27,6 @@ const BRAND = {
 
 const PRODUCTS = [
   {
-    id: "case-blush",
-    name: "Blush Case",
-    category: "Case",
-    price: null,
-    badge: "First drop",
-    colorway: { face: "#E7A6AE", accent: "#1F2E48", edge: "#D8909A", grip: "#1F2E48" },
-    swatches: ["#F2A9C4", "#E7A6AE", "#1F2E48"],
-    blurb: "Soft pink stripes on a structured shell, with a wrist strap for the walk to court. The Case that started it all, in its sunniest colorway.",
-    image: "assets/case-blush-1.jpg",
-    images: ["assets/case-blush-1.jpg", "assets/case-blush-2.jpg"],
-    buyUrl: "",
-  },
-  {
-    id: "case-marina",
-    name: "Marina Case",
-    category: "Case",
-    price: null,
-    badge: null,
-    colorway: { face: "#9DBCD8", accent: "#1F2E48", edge: "#86A8C8", grip: "#1F2E48" },
-    swatches: ["#9DBCD8", "#F3ECDD", "#1F2E48"],
-    blurb: "Color-blocked cream, sky, and marina blue with navy trim. A structured home for the paddle you keep.",
-    image: "assets/case-marina-1.jpg",
-    images: ["assets/case-marina-1.jpg", "assets/oncourt-grey.jpg", "assets/case-marina-3.jpg"],
-    buyUrl: "",
-  },
-  {
     id: "tee-fresh-white",
     name: "Fresh White Performance Tee",
     category: "Apparel",
@@ -138,24 +112,7 @@ const PRODUCTS = [
    - opensAt past, closesAt future -> "live" (buy + stock bar)
    - closesAt past or stockLeft 0  -> "closed" (sold out) */
 
-const DROPS = [
-  {
-    id: "drop-001",
-    number: "001",
-    name: "FIRST LIGHT",
-    headline: "The Case, first drop",
-    description:
-      "Our opening run. The Case in Blush and Marina, made in a small first batch out of Lexington. Join the list and you will be the first to know when it opens.",
-    opensAt: "2026-07-15T10:00:00",
-    closesAt: "2026-07-20T10:00:00",
-    price: null,
-    stockTotal: 120,
-    stockLeft: 120,
-    productId: "case-blush",
-    colorway: { face: "#E7A6AE", accent: "#1F2E48", edge: "#D8909A", grip: "#1F2E48" },
-    buyUrl: "",
-  },
-];
+const DROPS = [];
 
 /* --------------------------- case renderer -------------------------- */
 /* Generates a clean editorial SVG of the Case (a rounded, paddle-shaped
