@@ -79,26 +79,22 @@
       <h2 class="display">First drop coming soon</h2>
       <div class="serif-line">The list hears first, always.</div>
       <p class="small">One note when the doors open. Nothing else.</p>
-      <form data-signup="collection">
-        <input type="email" required placeholder="Email address" aria-label="Email address">
-        <button class="btn btn-dark" type="submit">Notify me</button>
-      </form>
-      <div class="ok">You are on the list. We will be in touch when the first drop opens.</div>
+      <button class="btn btn-dark" type="button" data-klaviyo-open>Notify me</button>
     </div>
   </section>
 
   <script src="js/catalog.js?v=7"></script>
-  <script src="js/site.js?v=6"></script>
+  <script src="js/site.js?v=7"></script>
   <script>
     function pageInit() {
       renderProductGrid("#product-grid", PRODUCTS);
 
-      // "Notify" affordance on each card scrolls to the signup form
+      // Clicking a product card's Notify label opens the Klaviyo form.
       document.querySelectorAll('#product-grid .notify').forEach(el => {
         el.addEventListener("click", e => {
           e.preventDefault();
-          document.querySelector("#notify").scrollIntoView({ behavior: "smooth" });
-          setTimeout(() => document.querySelector("#notify input")?.focus(), 600);
+          e.stopPropagation();
+          openKlaviyoSignup();
         });
       });
     }
