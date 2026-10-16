@@ -210,30 +210,19 @@ function renderProductGrid(sel, products = PRODUCTS) {
 
 /* -------------------------------- email forms ------------------------------ */
 
+// Open the published Klaviyo signup form. Klaviyo handles consent and storage.
+const KLAVIYO_SIGNUP_FORM_ID = "SpUbSP";
+function openKlaviyoSignup() {
+  window._klOnsite = window._klOnsite || [];
+  window._klOnsite.push(["openForm", KLAVIYO_SIGNUP_FORM_ID]);
+}
+
 function wireSignupForms() {
-  document.querySelectorAll("form[data-signup]").forEach(form => {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const input = form.querySelector("input[type=email]");
-      const email = input.value.trim();
-      if (!email) return;
-      if (BRAND.formEndpoint) {
-        try {
-          await fetch(BRAND.formEndpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ email, source: form.dataset.signup }),
-          });
-        } catch { /* still show success; the list is best-effort */ }
-      } else {
-        const saved = JSON.parse(localStorage.getItem("soluna_signups") || "[]");
-        saved.push({ email, source: form.dataset.signup, at: new Date().toISOString() });
-        localStorage.setItem("soluna_signups", JSON.stringify(saved));
-      }
-      form.style.display = "none";
-      const ok = form.parentElement.querySelector(".ok");
-      if (ok) ok.style.display = "block";
-    });
+  document.addEventListener("click", e => {
+    const trigger = e.target.closest("[data-klaviyo-open]");
+    if (!trigger) return;
+    e.preventDefault();
+    openKlaviyoSignup();
   });
 }
 
