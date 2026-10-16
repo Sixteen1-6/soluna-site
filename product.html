@@ -63,7 +63,7 @@
   </section>
 
   <script src="js/catalog.js?v=7"></script>
-  <script src="js/site.js?v=6"></script>
+  <script src="js/site.js?v=7"></script>
   <script>
     function pageInit() {
       const id = new URLSearchParams(location.search).get("id") || PRODUCTS[0].id;
@@ -86,13 +86,7 @@
           <div class="blurb">${p.blurb}</div>
           <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
           <div class="pdp-actions">
-            <form data-signup="pdp-${p.id}">
-              <div class="signup form" style="display:flex;gap:10px">
-                <input type="email" name="email" placeholder="Your email" aria-label="Email" required>
-                <button class="btn btn-accent" type="submit">Notify me</button>
-              </div>
-            </form>
-            <div class="ok">You are on the list. We will write the moment the first drop opens.</div>
+            <button class="btn btn-accent" type="button" data-klaviyo-open>Notify me</button>
             <a class="btn btn-outline-dark btn-block" href="shop.html">Keep looking</a>
           </div>
           <div class="pdp-note">A small first batch out of Lexington, Kentucky. No charge today, we will only reach out when it is ready.</div>
