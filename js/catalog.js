@@ -44,6 +44,22 @@ const PRODUCTS = [
     buyUrl: "",
   },
   {
+    id: "one-more-game-performance-tee",
+    name: "One More Game Performance Tee",
+    category: "Apparel",
+    price: null,
+    badge: "First drop",
+    colorway: { face: "#1F2E48", accent: "#9DBCD8", edge: "#1F2E48", grip: "#1F2E48" },
+    swatches: ["#1F2E48"],
+    blurb: "The One More Game Performance Tee combines lightweight, cooling performance fabric with strategically placed laser-etched ventilation for enhanced airflow. Its breathable, non-cling construction helps keep the fabric from sticking to your skin during intense play, while the precision-cut detailing creates a sleek, modern finish. Designed for comfort, movement, and effortless style on and off the court.",
+    image: "assets/01_Front_Model.png",
+    images: ["assets/01_Front_Model.png", "assets/02_Back_Model.png", "assets/03_One_More_Game_Chest_Detail.png", "assets/04_SOLUNA_Sleeve_Detail.png", "assets/05_SOLUNA_Back_Laser_Detail.png"],
+    variants: [
+      { id: "navy", label: "Navy", swatch: "#1F2E48", textColor: "#9DBCD8", images: ["assets/01_Front_Model.png", "assets/02_Back_Model.png", "assets/03_One_More_Game_Chest_Detail.png", "assets/04_SOLUNA_Sleeve_Detail.png", "assets/05_SOLUNA_Back_Laser_Detail.png"] }
+    ],
+    buyUrl: "",
+  },
+  {
     id: "return-performance-tee",
     name: "RETURN Performance Tee",
     category: "Apparel",
