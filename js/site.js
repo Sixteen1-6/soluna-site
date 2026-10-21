@@ -189,10 +189,18 @@ function countdownHTML(iso) {
 function productCard(p) {
   const badge = p.badge
     ? `<span class="badge ${p.badge === "New" ? "accent" : ""}">${p.badge}</span>` : "";
+  const photos = p.images?.length ? p.images : (p.image ? [p.image] : []);
+  const carousel = photos.length > 1;
+  const media = carousel
+    ? `<div class="card-carousel-track">${photos.map((src, i) =>
+        `<img src="${src}" alt="${p.name} — photo ${i + 1}" loading="lazy" draggable="false">`).join("")}</div>
+       <div class="card-carousel-dots" aria-hidden="true">${photos.map((_, i) =>
+        `<span class="card-carousel-dot${i === 0 ? " active" : ""}"></span>`).join("")}</div>`
+    : productArt(p);
   return `
   <a class="card reveal${p.id === "return-performance-tee" ? " return-tee-card" : ""}" href="product.html?id=${p.id}">
     ${badge}
-    <div class="frame${p.image ? " photo" : ""}">${productArt(p)}</div>
+    <div class="frame${p.image ? " photo" : ""}${carousel ? " card-carousel" : ""}">${media}</div>
     <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
     <h3>${p.name}</h3>
     <div class="cat">${p.category}</div>
@@ -203,9 +211,44 @@ function productCard(p) {
   </a>`;
 }
 
+function wireCardCarousels(container) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  container.querySelectorAll(".card-carousel").forEach(frame => {
+    const card = frame.closest(".card");
+    const slides = [...frame.querySelectorAll(".card-carousel-track img")];
+    const dots = [...frame.querySelectorAll(".card-carousel-dot")];
+    if (slides.length < 2) return;
+    let index = 0;
+    let timer = null;
+    const show = i => {
+      index = i % slides.length;
+      frame.querySelector(".card-carousel-track").style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
+    };
+    const stop = () => { if (timer !== null) { clearInterval(timer); timer = null; } };
+    card.addEventListener("mouseenter", () => {
+      if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
+      stop();
+      timer = setInterval(() => show(index + 1), 2200);
+    });
+    card.addEventListener("mouseleave", () => { stop(); show(0); });
+    card.addEventListener("focusout", e => {
+      if (!card.contains(e.relatedTarget)) { stop(); show(0); }
+    });
+    // Pause offscreen animations if the shopper scrolls away.
+    const observer = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) { stop(); show(0); }
+    });
+    observer.observe(card);
+  });
+}
+
 function renderProductGrid(sel, products = PRODUCTS) {
   const el = document.querySelector(sel);
-  if (el) el.innerHTML = products.map(productCard).join("");
+  if (el) {
+    el.innerHTML = products.map(productCard).join("");
+    wireCardCarousels(el);
+  }
 }
 
 /* -------------------------------- email forms ------------------------------ */
