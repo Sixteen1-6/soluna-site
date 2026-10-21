@@ -532,3 +532,15 @@ html[data-theme="luna"] img.logo { filter: brightness(0) invert(.92); }
 }
 .pdp-actions .ok { display: none; color: var(--accent-ink); background: var(--accent); padding: 14px; border-radius: 2px; font-weight: 400; letter-spacing: .04em; margin-top: 10px; }
 .pdp-art.photo.landscape { aspect-ratio: 3 / 2; }
+
+
+/* RETURN Performance Tee — selectable colorways */
+.colorway-picker { border: 0; padding: 0; margin: 12px 0 22px; min-width: 0; }
+.colorway-picker legend { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px; color: var(--muted); }
+#selected-colorway { color: var(--ink); font-weight: 500; }
+.colorway-options { display: flex; flex-wrap: wrap; gap: 12px; }
+.colorway-option { display: flex; flex-direction: column; align-items: center; gap: 7px; border: 1px solid var(--hair); padding: 9px 12px; background: transparent; color: var(--ink); cursor: pointer; border-radius: 3px; min-width: 112px; }
+.colorway-option.active, .colorway-option:focus-visible { border-color: var(--accent); outline: 1px solid var(--accent); outline-offset: 2px; }
+.colorway-option span { display: block; width: 25px; height: 25px; border: 1px solid rgba(100,100,100,.28); border-radius: 50%; }
+.colorway-option small { font: inherit; font-size: 11px; letter-spacing: .025em; }
+.pdp-thumbs { flex-wrap: wrap; }
