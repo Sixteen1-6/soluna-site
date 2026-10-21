@@ -77,33 +77,7 @@ const PRODUCTS = [
     image: "assets/ball-pinstripe-3.jpg",
     images: ["assets/ball-pinstripe-3.jpg", "assets/ball-pinstripe-1.jpg", "assets/ball-pinstripe-2.jpg"],
     buyUrl: "",
-  },
-  {
-    id: "short-clean-white",
-    name: "Clean White Performance Short",
-    category: "Apparel",
-    price: null,
-    badge: null,
-    colorway: { face: "#F6F6F4", accent: "#1F2E48", edge: "#E4E4E0", grip: "#F6F6F4" },
-    swatches: ["#F6F6F4", "#B9BDC1", "#1F2E48"],
-    blurb: "A clean performance short in bright white with a small S at the hem. Light, quick-drying, made for long afternoons.",
-    image: "assets/hero-court.jpg",
-    images: ["assets/hero-court.jpg"],
-    buyUrl: "",
-  },
-  {
-    id: "short-grey",
-    name: "Grey Performance Short",
-    category: "Apparel",
-    price: null,
-    badge: null,
-    colorway: { face: "#B9BDC1", accent: "#1F2E48", edge: "#A6ABAF", grip: "#B9BDC1" },
-    swatches: ["#B9BDC1", "#F6F6F4", "#1F2E48"],
-    blurb: "The same performance short in heather grey, with the S at the hem. Light, quick-drying, cool through the hottest afternoons.",
-    image: "assets/oncourt-grey.jpg",
-    images: ["assets/oncourt-grey.jpg"],
-    buyUrl: "",
-  },
+  }
 ];
 
 /* ------------------------------ drops ------------------------------- */
