@@ -60,6 +60,34 @@ const PRODUCTS = [
     buyUrl: "",
   },
   {
+    id: "reinstated-performance-tee",
+    name: "REINSTATED Performance Tee",
+    category: "Apparel",
+    price: null,
+    badge: "First drop",
+    colorway: { face: "#9DBCD8", accent: "#FFFFFF", edge: "#9DBCD8", grip: "#9DBCD8" },
+    swatches: ["#9DBCD8"],
+    blurb: "The REINSTATED Performance Tee combines lightweight, cooling performance fabric with strategically placed laser-etched ventilation for enhanced airflow. Its breathable, non-cling construction helps keep the fabric from sticking to your skin during intense play, while the precision-cut detailing creates a sleek, modern finish. Designed for comfort, movement, and effortless style on and off the court.",
+    image: "assets/reinstated-01_Front_Model.png",
+    images: [
+      "assets/reinstated-01_Front_Model.png",
+      "assets/reinstated-02_Back_Model.png",
+      "assets/reinstated-03_REINSTATED_Collar_Detail.png",
+      "assets/reinstated-04_SOLUNA_Sleeve_Detail.png",
+      "assets/reinstated-05_SOLUNA_Back_Laser_Detail.png"
+    ],
+    variants: [
+      { id: "baby-blue", label: "Baby Blue", swatch: "#9DBCD8", textColor: "#FFFFFF", images: [
+        "assets/reinstated-01_Front_Model.png",
+        "assets/reinstated-02_Back_Model.png",
+        "assets/reinstated-03_REINSTATED_Collar_Detail.png",
+        "assets/reinstated-04_SOLUNA_Sleeve_Detail.png",
+        "assets/reinstated-05_SOLUNA_Back_Laser_Detail.png"
+      ] }
+    ],
+    buyUrl: "",
+  },
+  {
     id: "return-performance-tee",
     name: "RETURN Performance Tee",
     category: "Apparel",
