@@ -608,3 +608,23 @@ body.return-tee-page .pdp-thumbs button img {
   object-fit: contain !important;
   object-position: center;
 }
+
+/* RETURN tee: remove gallery framing and visible borders. */
+body.return-tee-page .pdp-art.photo,
+body.return-tee-page .pdp-thumbs button,
+.card.return-tee-card .frame.photo {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+body.return-tee-page .pdp-art.photo img,
+body.return-tee-page .pdp-thumbs button img,
+.card.return-tee-card .frame.photo img {
+  border: 0;
+  box-shadow: none;
+}
+body.return-tee-page .pdp-thumbs button.active {
+  border: 0;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
