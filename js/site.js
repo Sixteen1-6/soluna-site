@@ -198,7 +198,7 @@ function productCard(p) {
         `<span class="card-carousel-dot${i === 0 ? " active" : ""}"></span>`).join("")}</div>`
     : productArt(p);
   return `
-  <a class="card reveal${p.id === "return-performance-tee" ? " return-tee-card" : ""}" href="product.html?id=${p.id}">
+  <a class="card reveal${["return-performance-tee", "made-for-sunny-days-performance-tee"].includes(p.id) ? " return-tee-card" : ""}" href="product.html?id=${p.id}">
     ${badge}
     <div class="frame${p.image ? " photo" : ""}${carousel ? " card-carousel" : ""}">${media}</div>
     <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
