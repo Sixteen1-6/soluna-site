@@ -215,31 +215,34 @@ function wireCardCarousels(container) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   container.querySelectorAll(".card-carousel").forEach(frame => {
     const card = frame.closest(".card");
-    const slides = [...frame.querySelectorAll(".card-carousel-track img")];
+    const track = frame.querySelector(".card-carousel-track");
+    const slides = [...track.querySelectorAll("img")];
     const dots = [...frame.querySelectorAll(".card-carousel-dot")];
-    if (slides.length < 2) return;
+    if (slides.length < 2 || reduceMotion) return;
     let index = 0;
     let timer = null;
+    let visible = false;
     const show = i => {
       index = i % slides.length;
-      frame.querySelector(".card-carousel-track").style.transform = `translateX(-${index * 100}%)`;
+      track.style.transform = `translateX(-${index * 100}%)`;
       dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
     };
-    const stop = () => { if (timer !== null) { clearInterval(timer); timer = null; } };
-    card.addEventListener("mouseenter", () => {
-      if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
+    const stop = () => {
+      if (timer !== null) { clearInterval(timer); timer = null; }
+    };
+    const sync = () => {
       stop();
-      timer = setInterval(() => show(index + 1), 2200);
-    });
-    card.addEventListener("mouseleave", () => { stop(); show(0); });
-    card.addEventListener("focusout", e => {
-      if (!card.contains(e.relatedTarget)) { stop(); show(0); }
-    });
-    // Pause offscreen animations if the shopper scrolls away.
+      if (visible && !document.hidden) {
+        timer = setInterval(() => show(index + 1), 1500);
+      }
+    };
+    // Auto-advance without hover, including on touch devices. Save resources offscreen.
     const observer = new IntersectionObserver(entries => {
-      if (!entries[0].isIntersecting) { stop(); show(0); }
+      visible = entries[0].isIntersecting;
+      sync();
     });
     observer.observe(card);
+    document.addEventListener("visibilitychange", sync);
   });
 }
 
