@@ -27,6 +27,23 @@ const BRAND = {
 
 const PRODUCTS = [
   {
+    id: "return-performance-tee",
+    name: "RETURN Performance Tee",
+    category: "Apparel",
+    price: null,
+    badge: "First drop",
+    colorway: { face: "#FFFFFF", accent: "#161616", edge: "#E6E6E6", grip: "#FFFFFF" },
+    swatches: ["#FFFFFF", "#1F2E48"],
+    blurb: "The RETURN Performance Tee combines lightweight, cooling performance fabric with strategically placed laser-etched ventilation for enhanced airflow. Its breathable, non-cling construction helps keep the fabric from sticking to your skin during intense play, while the precision-cut detailing creates a sleek, modern finish. Designed for comfort, movement, and effortless style on and off the court.",
+    image: "assets/return-white-black-1.webp",
+    images: Array.from({ length: 5 }, (_, i) => `assets/return-white-black-${i + 1}.webp`),
+    variants: [
+      { id: "white-black", label: "White / Black", swatch: "#FFFFFF", textColor: "#111111", images: Array.from({ length: 5 }, (_, i) => `assets/return-white-black-${i + 1}.webp`) },
+      { id: "navy-baby-blue", label: "Navy / Baby Blue", swatch: "#1F2E48", textColor: "#9DBCD8", images: Array.from({ length: 5 }, (_, i) => `assets/return-navy-baby-blue-${i + 1}.webp`) }
+    ],
+    buyUrl: "",
+  },
+  {
     id: "ball-retro-wave",
     name: "Retro Wave Court Ball",
     category: "Balls",
