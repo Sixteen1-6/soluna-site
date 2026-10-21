@@ -190,7 +190,7 @@ function productCard(p) {
   const badge = p.badge
     ? `<span class="badge ${p.badge === "New" ? "accent" : ""}">${p.badge}</span>` : "";
   return `
-  <a class="card reveal" href="product.html?id=${p.id}">
+  <a class="card reveal${p.id === "return-performance-tee" ? " return-tee-card" : ""}" href="product.html?id=${p.id}">
     ${badge}
     <div class="frame${p.image ? " photo" : ""}">${productArt(p)}</div>
     <div class="swatches">${p.swatches.map(s => `<i style="background:${s}"></i>`).join("")}</div>
