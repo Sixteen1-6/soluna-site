@@ -544,3 +544,11 @@ html[data-theme="luna"] img.logo { filter: brightness(0) invert(.92); }
 .colorway-option span { display: block; width: 25px; height: 25px; border: 1px solid rgba(100,100,100,.28); border-radius: 50%; }
 .colorway-option small { font: inherit; font-size: 11px; letter-spacing: .025em; }
 .pdp-thumbs { flex-wrap: wrap; }
+
+/* RETURN tee: show the full photograph, never crop its edges. */
+body.return-tee-page .pdp-art.photo img,
+body.return-tee-page .pdp-thumbs button img,
+.card.return-tee-card .frame.photo img { object-fit: contain; }
+body.return-tee-page .pdp-art.photo,
+body.return-tee-page .pdp-thumbs button,
+.card.return-tee-card .frame.photo { background: #f4f0e8; }
