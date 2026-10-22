@@ -68,19 +68,19 @@ const PRODUCTS = [
     colorway: { face: "#9DBCD8", accent: "#FFFFFF", edge: "#9DBCD8", grip: "#9DBCD8" },
     swatches: ["#9DBCD8"],
     blurb: "The REINSTATED Performance Tee combines lightweight, cooling performance fabric with strategically placed laser-etched ventilation for enhanced airflow. Its breathable, non-cling construction helps keep the fabric from sticking to your skin during intense play, while the precision-cut detailing creates a sleek, modern finish. Designed for comfort, movement, and effortless style on and off the court.",
-    image: "assets/reinstated-01_Front_Model.png",
+    image: "assets/reinstated-03_REINSTATED_Collar_Detail.png",
     images: [
+      "assets/reinstated-03_REINSTATED_Collar_Detail.png",
       "assets/reinstated-01_Front_Model.png",
       "assets/reinstated-02_Back_Model.png",
-      "assets/reinstated-03_REINSTATED_Collar_Detail.png",
       "assets/reinstated-04_SOLUNA_Sleeve_Detail.png",
       "assets/reinstated-05_SOLUNA_Back_Laser_Detail.png"
     ],
     variants: [
       { id: "baby-blue", label: "Baby Blue", swatch: "#9DBCD8", textColor: "#FFFFFF", images: [
+        "assets/reinstated-03_REINSTATED_Collar_Detail.png",
         "assets/reinstated-01_Front_Model.png",
         "assets/reinstated-02_Back_Model.png",
-        "assets/reinstated-03_REINSTATED_Collar_Detail.png",
         "assets/reinstated-04_SOLUNA_Sleeve_Detail.png",
         "assets/reinstated-05_SOLUNA_Back_Laser_Detail.png"
       ] }
@@ -96,10 +96,10 @@ const PRODUCTS = [
     colorway: { face: "#FFFFFF", accent: "#161616", edge: "#E6E6E6", grip: "#FFFFFF" },
     swatches: ["#FFFFFF", "#1F2E48"],
     blurb: "The RETURN Performance Tee combines lightweight, cooling performance fabric with strategically placed laser-etched ventilation for enhanced airflow. Its breathable, non-cling construction helps keep the fabric from sticking to your skin during intense play, while the precision-cut detailing creates a sleek, modern finish. Designed for comfort, movement, and effortless style on and off the court.",
-    image: "assets/return-white-black-2.webp",
-    images: [2, 1, 4, 3, 5].map(i => `assets/return-white-black-${i}.webp`),
+    image: "assets/return-white-black-3.webp",
+    images: [3, 2, 1, 4, 5].map(i => `assets/return-white-black-${i}.webp`),
     variants: [
-      { id: "white-black", label: "White / Black", swatch: "#FFFFFF", textColor: "#111111", images: [2, 1, 4, 3, 5].map(i => `assets/return-white-black-${i}.webp`) },
+      { id: "white-black", label: "White / Black", swatch: "#FFFFFF", textColor: "#111111", images: [3, 2, 1, 4, 5].map(i => `assets/return-white-black-${i}.webp`) },
       { id: "navy-baby-blue", label: "Navy / Baby Blue", swatch: "#1F2E48", textColor: "#9DBCD8", images: [2, 1, 3, 4, 5].map(i => `assets/return-navy-baby-blue-${i}.webp`) }
     ],
     buyUrl: "",
