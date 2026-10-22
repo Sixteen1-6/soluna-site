@@ -212,37 +212,33 @@ function productCard(p) {
 }
 
 function wireCardCarousels(container) {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia("prefers-reduced-motion: reduce").matches;
   container.querySelectorAll(".card-carousel").forEach(frame => {
     const card = frame.closest(".card");
-    const track = frame.querySelector(".card-carousel-track");
-    const slides = [...track.querySelectorAll("img")];
+    const slides = [...frame.querySelectorAll(".card-carousel-track img")];
     const dots = [...frame.querySelectorAll(".card-carousel-dot")];
-    if (slides.length < 2 || reduceMotion) return;
+    if (slides.length < 2) return;
     let index = 0;
     let timer = null;
-    let visible = false;
     const show = i => {
       index = i % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
+      frame.querySelector(".card-carousel-track").style.transform = `translateX(-${index * 100}%)`;
       dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
     };
-    const stop = () => {
-      if (timer !== null) { clearInterval(timer); timer = null; }
-    };
-    const sync = () => {
+    const stop = () => { if (timer !== null) { clearInterval(timer); timer = null; } };
+    card.addEventListener("mouseenter", () => {
+      if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
       stop();
-      if (visible && !document.hidden) {
-        timer = setInterval(() => show(index + 1), 1500);
-      }
-    };
-    // Auto-advance without hover, including on touch devices. Save resources offscreen.
+      timer = setInterval(() => show(index + 1), 2200);
+    });
+    card.addEventListener("mouseleave", () => { stop(); show(0); });
+    card.addEventListener("focusout", e => {
+      if (!card.contains(e.relatedTarget)) { stop(); show(0); }
+    });
     const observer = new IntersectionObserver(entries => {
-      visible = entries[0].isIntersecting;
-      sync();
+      if (!entries[0].isIntersecting) { stop(); show(0); }
     });
     observer.observe(card);
-    document.addEventListener("visibilitychange", sync);
   });
 }
 
