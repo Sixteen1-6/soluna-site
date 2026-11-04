@@ -39,7 +39,7 @@
           <h1 id="tourney-title">ONE MORE <em>GAME.</em></h1>
           <p class="tourney-hero-lede">The next chapter is on the court. Join us for the SOLUNA January pickleball tournament — and get the first word when registration opens.</p>
           <div class="tourney-actions">
-            <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-open>Get early access <span aria-hidden="true">↗</span></a>
+            <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-tournament>Get early access <span aria-hidden="true">↗</span></a>
             <a class="tourney-btn tourney-btn-ghost" href="/january-tournament/#details">Tournament details</a>
           </div>
           <p class="tourney-fineprint">Free to join the updates list. Tournament registration is not open yet.</p>
@@ -64,7 +64,7 @@
           <h2>Good games.<br>Great people.</h2>
           <p>We're bringing the Lexington pickleball community together for a tournament built around good competition and the people who make this game worth playing.</p>
           <p>Get on the list for announcements about registration, divisions, venue details, and more as plans are finalized.</p>
-          <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-open>Keep me in the loop <span aria-hidden="true">↗</span></a>
+          <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-tournament>Keep me in the loop <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -89,7 +89,7 @@
         <p class="tourney-eyebrow">Made for sunny days.</p>
         <h2>See you on the court.</h2>
         <p>Don't miss the announcement when January registration opens.</p>
-        <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-open>Get tournament updates <span aria-hidden="true">↗</span></a>
+        <a class="tourney-btn tourney-btn-primary" href="#" data-klaviyo-tournament>Get tournament updates <span aria-hidden="true">↗</span></a>
         <a class="tourney-shop" href="shop.html">Explore the SOLUNA collection</a>
       </div>
     </section>
@@ -99,8 +99,12 @@
   <script src="js/site.js?v=13"></script>
   <script>
     function pageInit() {
-      document.querySelectorAll('[data-klaviyo-open]').forEach(function(link){
-        link.addEventListener('click', function(){
+      document.querySelectorAll('[data-klaviyo-tournament]').forEach(function(link){
+        link.addEventListener('click', function(event){
+          event.preventDefault();
+          // Use the dedicated January tournament signup form, not the general SOLUNA popup.
+          window._klOnsite = window._klOnsite || [];
+          window._klOnsite.push(['openForm', 'XBwBWj']);
           if (typeof window.gtag === 'function') {
             window.gtag('event', 'january_tournament_signup_click', {event_category:'tournament',event_label:'january_2027'});
           }
