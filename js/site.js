@@ -72,6 +72,7 @@ function injectChrome(active) {
     ["shop.html", "Starting Lineup"],
     ["balls.html", "Balls"],
     ["apparel.html", "Apparel"],
+    ["january-tournament/", "Tournament"],
     ["about.html", "Story"],
   ];
 
@@ -118,6 +119,7 @@ function injectChrome(active) {
           <div class="foot-col">
             <h4>Soluna</h4>
             <a href="about.html">Our Story</a>
+            <a href="january-tournament/">January Tournament</a>
             <a href="mailto:${BRAND.email}">Contact</a>
             <a href="${BRAND.social.instagram}">Instagram</a>
           </div>

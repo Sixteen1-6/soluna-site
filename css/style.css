@@ -676,3 +676,9 @@ body.return-tee-page .pdp-thumbs button.active {
 @media (prefers-reduced-motion: reduce) {
   .card-carousel-track, .card-carousel-dot { transition: none; }
 }
+
+/* Keep the six-link navigation comfortable on smaller laptops. */
+@media (max-width: 980px) {
+  .nav-links, .nav .search { display: none; }
+  .nav-burger { display: flex; }
+}
