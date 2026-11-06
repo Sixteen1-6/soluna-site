@@ -35,13 +35,12 @@ const PRODUCTS = [
     colorway: { face: "#9DBCD8", accent: "#1F2E48", edge: "#D6E1EA", grip: "#1F2E48" },
     swatches: ["#9DBCD8", "#1F2E48"],
     blurb: "A fresh take on the everyday court hat. Blue camo meets the Made for Sunny Days signature, with thoughtful details made for the game and everything after.",
-    image: "assets/Blue Camo Front.png",
+    image: "assets/Blue_Camo_Angle_Transparent_Clean.png",
     images: [
-      "assets/Blue Camo Front.png",
-      "assets/Blue Camo Angle.png",
-      "assets/Blue Camo Back (1).png",
-      "assets/Blue Camo Embroidery.png",
-      "assets/Blue Camo Inside.png"
+      "assets/Blue_Camo_Angle_Transparent_Clean.png",
+      "assets/Blue_Camo_Front_Transparent_Clean.png",
+      "assets/Blue Camo Transparent Side.png",
+      "assets/Blue_Camo_Back_Transparent_Clean.png"
     ],
     buyUrl: "",
   },
