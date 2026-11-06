@@ -27,24 +27,6 @@ const BRAND = {
 
 const PRODUCTS = [
   {
-    id: "made-for-sunny-days-camo",
-    name: "Made for Sunny Days Camo",
-    category: "Apparel",
-    price: null,
-    badge: "First drop",
-    colorway: { face: "#9DBCD8", accent: "#1F2E48", edge: "#D6E1EA", grip: "#1F2E48" },
-    swatches: ["#9DBCD8", "#1F2E48"],
-    blurb: "A fresh take on the everyday court hat. Blue camo meets the Made for Sunny Days signature, with thoughtful details made for the game and everything after.",
-    image: "assets/Blue_Camo_Angle_Transparent_Clean.png",
-    images: [
-      "assets/Blue_Camo_Angle_Transparent_Clean.png",
-      "assets/MFSD Blue Camo Front Transparent.png",
-      "assets/Blue Camo Transparent Side.png",
-      "assets/Blue_Camo_Back_Transparent_Clean.png"
-    ],
-    buyUrl: "",
-  },
-  {
     id: "made-for-sunny-days-performance-tee",
     name: "Made For Sunny Days Performance Tee",
     category: "Apparel",
