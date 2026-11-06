@@ -199,7 +199,7 @@ html[data-theme="luna"] .logo img { filter: brightness(0) invert(.92); }
 }
 .hero .eyebrow { color: var(--accent); margin-bottom: 20px; }
 .hero .eyebrow .serif-it { color: var(--paper); font-size: 15px; letter-spacing: .02em; margin-left: 12px; text-transform: none; }
-.hero h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(58px, 9vw, 132px); line-height: 1.0; letter-spacing: .005em; }
+.hero h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(56px, 8vw, 116px); line-height: .94; letter-spacing: -.025em; }
 .hero h1 .outline { -webkit-text-stroke-color: var(--paper); }
 .hero h1 .accent { color: var(--accent); font-style: italic; }
 .hero p.lede {
