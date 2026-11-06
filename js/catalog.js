@@ -38,7 +38,7 @@ const PRODUCTS = [
     image: "assets/Blue_Camo_Angle_Transparent_Clean.png",
     images: [
       "assets/Blue_Camo_Angle_Transparent_Clean.png",
-      "assets/Blue_Camo_Front_Transparent_Clean.png",
+      "assets/MFSD Blue Camo Front Transparent.png",
       "assets/Blue Camo Transparent Side.png",
       "assets/Blue_Camo_Back_Transparent_Clean.png"
     ],
