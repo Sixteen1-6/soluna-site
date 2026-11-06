@@ -698,6 +698,6 @@ body.return-tee-page .pdp-thumbs button.active {
 .hat-camo-page .pdp-art.photo img { object-fit: contain; }
 .hat-camo-page .pdp-thumbs button img { object-fit: contain; }
 
-/* Made for Sunny Days Camo: white product photo backgrounds. */
+/* Made for Sunny Days Camo: match the website's cream product background. */
 .hat-camo-page .pdp-art.photo,
-.hat-camo-page .pdp-thumbs button { background: #fff; }
+.hat-camo-page .pdp-thumbs button { background: var(--paper); }
