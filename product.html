@@ -69,6 +69,7 @@
       const id = new URLSearchParams(location.search).get("id") || PRODUCTS[0].id;
       const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
       setProductSEO(p);
+      document.body.classList.toggle("hat-camo-page", p.id === "made-for-sunny-days-camo");
       document.body.classList.toggle("return-tee-page", ["return-performance-tee", "made-for-sunny-days-performance-tee", "one-more-game-performance-tee", "reinstated-performance-tee"].includes(p.id));
 
       const photos = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
