@@ -76,13 +76,22 @@ function injectChrome(active) {
     ["about.html", "Story"],
   ];
 
+  // Highlight the current destination in both desktop and mobile navigation.
+  const currentPath = window.location.pathname.replace(/\\/g, "/").replace(/\\/g, "/");
+  const currentPage = currentPath.endsWith("/") ? (currentPath.includes("/january-tournament/") ? "january-tournament/" : "index.html") : currentPath.split("/").pop();
+  const isCurrentLink = href => {
+    const target = href.split("#")[0];
+    return target === currentPage || (target === "january-tournament/" && currentPath.includes("/january-tournament"));
+  };
+  const navLink = ([href, label]) => `<a href="${href}"${isCurrentLink(href) ? ' class="nav-active" aria-current="page"' : ""}>${label}</a>`;
+
   document.body.insertAdjacentHTML("afterbegin", `
     <div class="announce">${announce}</div>
     <header class="site">
       <nav class="nav">
         <a class="brand" href="index.html"><img src="assets/logo.png" class="logo" alt="Soluna"></a>
         <ul class="nav-links">
-          ${links.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join("")}
+          ${links.map(([href, label]) => `<li>${navLink([href, label])}</li>`).join("")}
         </ul>
         <div class="nav-right">
           <button class="theme-toggle" type="button" aria-label="Toggle Sol or Luna mode">Sol / Luna</button>
@@ -91,7 +100,7 @@ function injectChrome(active) {
         </div>
       </nav>
       <div class="mobile-menu">
-        ${links.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}
+        ${links.map(([href, label]) => navLink([href, label])).join("")}
         <button class="theme-toggle" type="button" aria-label="Toggle Sol or Luna mode">Sol / Luna</button>
       </div>
     </header>
