@@ -692,3 +692,8 @@ body.return-tee-page .pdp-thumbs button.active {
   .nav-links, .nav .search { display: none; }
   .nav-burger { display: flex; }
 }
+
+/* Blue camo hat: consistent gallery framing without cropping the original photos. */
+.hat-camo-page .pdp-art.photo { aspect-ratio: 4 / 5; }
+.hat-camo-page .pdp-art.photo img { object-fit: contain; }
+.hat-camo-page .pdp-thumbs button img { object-fit: contain; }
