@@ -147,6 +147,16 @@ html[data-theme="luna"] .logo img { filter: brightness(0) invert(.92); }
   opacity: .80; transition: opacity .15s, color .15s; position: relative;
 }
 .nav-links a:hover { opacity: 1; color: var(--accent); }
+.nav-links a.nav-active,
+.nav-links a[aria-current="page"] { opacity: 1; color: var(--ink); font-weight: 500; }
+.nav-links a.nav-active::after,
+.nav-links a[aria-current="page"]::after {
+  content: ""; position: absolute; left: 0; right: .18em; bottom: -10px;
+  height: 2px; background: var(--accent);
+}
+.mobile-menu a.nav-active,
+.mobile-menu a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--accent); }
+
 .chip {
   font-size: 9px; font-weight: 500; letter-spacing: .10em; text-transform: uppercase;
   background: var(--accent); color: var(--accent-ink);
