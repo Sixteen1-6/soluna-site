@@ -121,6 +121,22 @@ const PRODUCTS = [
     buyUrl: "",
   },
   {
+    id: "made-for-sunny-days-hat-cream-navy",
+    name: "Made for Sunny Days",
+    category: "Apparel",
+    price: null,
+    badge: "First drop",
+    colorway: { face: "#F3ECDD", accent: "#1F2E48", edge: "#F3ECDD", grip: "#1F2E48" },
+    swatches: ["#F3ECDD", "#1F2E48"],
+    blurb: "The Made for Sunny Days hat in Cream/Navy features a cream crown and brim, navy embroidery, rope detailing, laser-etched ventilation, a navy paddle emblem, and an adjustable snapback closure. Made for sunny days on and off the court.",
+    image: "assets/Cream Cap with Navy Sunny Days Embroidery-1.png",
+    images: ["assets/Cream Cap with Navy Sunny Days Embroidery-1.png","assets/Cream “Made for Sunny Days” Cap-2.png","assets/Ivory Perforated Snapback Cap Back-3.png","assets/Cream “Sunny Days” Embroidered Cap-4.png","assets/Soluna Cap Interior Detail-5.png"],
+    variants: [
+      { id: "cream-navy", label: "Cream/Navy", swatch: "#F3ECDD", textColor: "#1F2E48", images: ["assets/Cream Cap with Navy Sunny Days Embroidery-1.png","assets/Cream “Made for Sunny Days” Cap-2.png","assets/Ivory Perforated Snapback Cap Back-3.png","assets/Cream “Sunny Days” Embroidered Cap-4.png","assets/Soluna Cap Interior Detail-5.png"] }
+    ],
+    buyUrl: "",
+  },
+  {
     id: "ball-retro-wave",
     name: "Retro Wave Court Ball",
     category: "Balls",
