@@ -105,6 +105,22 @@ const PRODUCTS = [
     buyUrl: "",
   },
   {
+    id: "made-for-sunny-days-hat-coastal-blue-cream",
+    name: "Made for Sunny Days",
+    category: "Apparel",
+    price: null,
+    badge: "First drop",
+    colorway: { face: "#A9CAE9", accent: "#1F2E48", edge: "#F3ECDD", grip: "#A9CAE9" },
+    swatches: ["#A9CAE9", "#F3ECDD"],
+    blurb: "The Made for Sunny Days hat in Coastal Blue/Cream features a coastal blue and cream camo design, navy embroidery, a blue brim, rope detailing, laser-etched ventilation, and an adjustable snapback closure. Made for sunny days on and off the court.",
+    image: "assets/01_Angle.png",
+    images: ["assets/01_Angle.png", "assets/02_Front.png", "assets/03_Back.png", "assets/04_Emblem_Side.png", "assets/05_Interior.png"],
+    variants: [
+      { id: "coastal-blue-cream", label: "Coastal Blue/Cream", swatch: "#A9CAE9", textColor: "#1F2E48", images: ["assets/01_Angle.png", "assets/02_Front.png", "assets/03_Back.png", "assets/04_Emblem_Side.png", "assets/05_Interior.png"] }
+    ],
+    buyUrl: "",
+  },
+  {
     id: "ball-retro-wave",
     name: "Retro Wave Court Ball",
     category: "Balls",
