@@ -701,3 +701,26 @@ body.return-tee-page .pdp-thumbs button.active {
 /* Made for Sunny Days Camo: match the website's cream product background. */
 .hat-camo-page .pdp-art.photo,
 .hat-camo-page .pdp-thumbs button { background: var(--paper); }
+
+
+/* Hat photography: transparent photo edges blend into Sol AND Luna backgrounds.
+   No square tiles, borders, or cropped brims on hat cards or product galleries. */
+.card[href*="-hat-"] .frame.photo,
+.card[href*="-hat-"]:hover .frame.photo,
+body.hat-product-page .pdp-art.photo,
+body.hat-product-page .pdp-thumbs button {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.card[href*="-hat-"] .frame.photo img,
+.card[href*="-hat-"] .frame.photo.card-carousel .card-carousel-track img,
+body.hat-product-page .pdp-art.photo img,
+body.hat-product-page .pdp-thumbs button img {
+  object-fit: contain;
+}
+body.hat-product-page .pdp-art.photo { aspect-ratio: 4 / 5; }
+body.hat-product-page .pdp-thumbs button.active {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
