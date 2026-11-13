@@ -354,12 +354,109 @@ function setProductSEO(p) {
   s.textContent = JSON.stringify(ld);
 }
 
+
+/* -------------------------- seamless hat photography -------------------------
+   Hat product images are supplied on white. Remove only white pixels connected
+   to the OUTSIDE of each photo, preserving the actual hat, details and shadows.
+   Original image files remain unchanged. Result works on cream and navy themes.
+   --------------------------------------------------------------------------- */
+const hatCutoutCache = new Map();
+
+function cutOutHatPhoto(img) {
+  const src = img.getAttribute("src");
+  if (!src || /^(data|blob):/.test(src) || !img.complete || !img.naturalWidth) return;
+
+  if (!hatCutoutCache.has(src)) {
+    const task = new Promise(resolve => {
+      try {
+        const width = img.naturalWidth, height = img.naturalHeight;
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
+        if (!context) { resolve(null); return; }
+        context.drawImage(img, 0, 0);
+        const image = context.getImageData(0, 0, width, height);
+        const pixels = image.data;
+        const count = width * height;
+        const visited = new Uint8Array(count);
+        const queue = new Uint32Array(count);
+        let head = 0, tail = 0, removed = 0;
+
+        // The cream hat is deliberately not keyed out: all RGB channels
+        // must be near white, and the region must connect to a photo edge.
+        function enqueue(i) {
+          if (visited[i]) return;
+          visited[i] = 1;
+          const p = i * 4;
+          if (pixels[p + 3] > 0 &&
+              pixels[p] >= 231 && pixels[p + 1] >= 231 && pixels[p + 2] >= 231 &&
+              Math.max(pixels[p], pixels[p + 1], pixels[p + 2]) -
+              Math.min(pixels[p], pixels[p + 1], pixels[p + 2]) <= 20) {
+            queue[tail++] = i;
+          }
+        }
+
+        for (let x = 0; x < width; x++) {
+          enqueue(x);
+          enqueue((height - 1) * width + x);
+        }
+        for (let y = 0; y < height; y++) {
+          enqueue(y * width);
+          enqueue(y * width + width - 1);
+        }
+
+        while (head < tail) {
+          const i = queue[head++];
+          pixels[i * 4 + 3] = 0;
+          removed++;
+          const x = i % width;
+          if (x > 0) enqueue(i - 1);
+          if (x < width - 1) enqueue(i + 1);
+          if (i >= width) enqueue(i - width);
+          if (i < count - width) enqueue(i + width);
+        }
+
+        if (!removed) { resolve(null); return; }
+        context.putImageData(image, 0, 0);
+        canvas.toBlob(blob => resolve(blob ? URL.createObjectURL(blob) : null), "image/png");
+      } catch (error) {
+        // A photo that cannot be processed is still displayed untouched.
+        resolve(null);
+      }
+    });
+    hatCutoutCache.set(src, task);
+  }
+
+  hatCutoutCache.get(src).then(url => {
+    // Don't replace a thumbnail that has switched to another colorway.
+    if (url && img.getAttribute("src") === src) img.src = url;
+  });
+}
+
+function setupSeamlessHatPhotos() {
+  const wired = new WeakSet();
+  const scan = () => {
+    document.querySelectorAll('.card[href*="-hat-"] .frame img, body.hat-product-page .pdp-left img').forEach(img => {
+      if (!wired.has(img)) {
+        wired.add(img);
+        img.addEventListener("load", () => cutOutHatPhoto(img));
+      }
+      if (img.complete && img.naturalWidth) cutOutHatPhoto(img);
+    });
+  };
+  const observer = new MutationObserver(scan);
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["src"] });
+  scan();
+}
+
 /* ---------------------------------- boot ----------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
   restoreTheme();
   injectChrome();
   if (typeof pageInit === "function") pageInit();
+  setupSeamlessHatPhotos();
   startCountdowns();
   wireSignupForms();
   wireReveals();
