@@ -160,8 +160,8 @@ const PRODUCTS = [
     swatches: ["#F6EBDD", "#8ABFEF", "#1F2E48"],
     blurb: "The Soluna hat in Made for Sunny Days features a structured cream crown, coastal-blue brim, navy Soluna script and MADE FOR SUNNY DAYS embroidery, a golden sun accent, laser-etched ventilation, a blue paddle emblem, SOLUNA side embroidery, and an adjustable snapback closure. Made for sunny days on and off the court.",
     image: "assets/Front.png",
-    images: ["assets/Front.png","assets/Interior sunrise.png","assets/Angle.png","assets/Embroidery Side.png"],
-    variants: [{ id: "made-for-sunny-days", label: "Made for Sunny Days", swatch: "#F6EBDD", textColor: "#1F2E48", images: ["assets/Front.png","assets/Interior sunrise.png","assets/Angle.png","assets/Embroidery Side.png"] }],
+    images: ["assets/Front.png","assets/Angle.png","assets/Interior sunrise.png","assets/Embroidery Side.png"],
+    variants: [{ id: "made-for-sunny-days", label: "Made for Sunny Days", swatch: "#F6EBDD", textColor: "#1F2E48", images: ["assets/Front.png","assets/Angle.png","assets/Interior sunrise.png","assets/Embroidery Side.png"] }],
     buyUrl: "",
   },
   {
